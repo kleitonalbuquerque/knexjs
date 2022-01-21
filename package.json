@@ -1,0 +1,17 @@
+{
+  "name": "knexjs",
+  "version": "1.0.0",
+  "description": "Trabalhando com knexjs query builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "knexjs",
+    "js",
+    "node",
+    "database"
+  ],
+  "author": "Kleiton Albuquerque",
+  "license": "ISC"
+}
