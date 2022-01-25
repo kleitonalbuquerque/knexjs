@@ -104,12 +104,28 @@ console.log("*********************************************");
 
 console.log("*********************************************");
 
+// DELETE
+
+// database
+//   .where({ id: 2 })
+//   .delete()
+//   .table("games")
+//   .then((data) => {
+//     console.log("Game excluído com sucesso! " + data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+console.log("*********************************************");
+
+// UPDATE
 database
-  .where({ id: 2 })
-  .delete()
+  .where({ id: 3 })
+  .update({ nome: "COD Modern Warfare" })
   .table("games")
   .then((data) => {
-    console.log("Game excluído com sucesso! " + data);
+    console.log(data);
   })
   .catch((err) => {
     console.log(err);
