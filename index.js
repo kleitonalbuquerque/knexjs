@@ -120,13 +120,29 @@ console.log("*********************************************");
 console.log("*********************************************");
 
 // UPDATE
+
+// database
+//   .where({ id: 3 })
+//   .update({ nome: "COD Modern Warfare" })
+//   .table("games")
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+console.log("*********************************************");
+
+// ORDER BY
+
 database
-  .where({ id: 3 })
-  .update({ nome: "COD Modern Warfare" })
+  .select()
   .table("games")
+  .orderBy("preco", "asc")
   .then((data) => {
     console.log(data);
   })
   .catch((err) => {
     console.log(err);
-  });
+  }); // desc // asc
