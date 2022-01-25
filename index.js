@@ -93,10 +93,23 @@ console.log("*********************************************");
 
 // Query crua (pura) - RAW
 
+// database
+//   .raw("SELECT * FROM games")
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+console.log("*********************************************");
+
 database
-  .raw("SELECT * FROM games")
+  .where({ id: 2 })
+  .delete()
+  .table("games")
   .then((data) => {
-    console.log(data);
+    console.log("Game excluído com sucesso! " + data);
   })
   .catch((err) => {
     console.log(err);
