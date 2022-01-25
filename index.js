@@ -30,7 +30,10 @@ const database = require("./db");
 //     console.log(err);
 //   });
 
+console.log("*********************************************");
+
 // SELECT
+
 // database
 //   .select(["nome", "preco"])
 //   .table("games")
@@ -41,20 +44,58 @@ const database = require("./db");
 //     console.log(err);
 //   });
 
+console.log("*********************************************");
+
 // INSERT e SELECT (NESTED QUERIES)
+
+// database
+//   .insert({ nome: "Trine", preco: 49.9 })
+//   .into("games")
+//   .then((data) => {
+//     database
+//       .select()
+//       .table("games")
+//       .then((data) => {
+//         console.log(data);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+console.log("*********************************************");
+
+// WHERE
+
+// var query = database
+//   .select(["id", "preco"])
+//   // .where({ nome: "Trine" })
+//   .whereRaw("nome = 'GTA V' OR preco > 70")
+//   .table("games");
+// console.log(query.toQuery());
+
+// database
+//   .select()
+//   .whereRaw("nome = 'GTA V' OR preco > 120")
+//   .table("games")
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+console.log("*********************************************");
+
+// Query crua (pura) - RAW
+
 database
-  .insert({ nome: "Trine", preco: 49.9 })
-  .into("games")
+  .raw("SELECT * FROM games")
   .then((data) => {
-    database
-      .select()
-      .table("games")
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
     console.log(data);
   })
   .catch((err) => {
