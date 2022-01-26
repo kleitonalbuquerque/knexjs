@@ -44,8 +44,6 @@ console.log("*********************************************");
 //     console.log(err);
 //   });
 
-console.log("*********************************************");
-
 // INSERT e SELECT (NESTED QUERIES)
 
 // database
@@ -67,8 +65,6 @@ console.log("*********************************************");
 //     console.log(err);
 //   });
 
-console.log("*********************************************");
-
 // WHERE
 
 // var query = database
@@ -89,8 +85,6 @@ console.log("*********************************************");
 //     console.log(err);
 //   });
 
-console.log("*********************************************");
-
 // Query crua (pura) - RAW
 
 // database
@@ -101,8 +95,6 @@ console.log("*********************************************");
 //   .catch((err) => {
 //     console.log(err);
 //   });
-
-console.log("*********************************************");
 
 // DELETE
 
@@ -117,8 +109,6 @@ console.log("*********************************************");
 //     console.log(err);
 //   });
 
-console.log("*********************************************");
-
 // UPDATE
 
 // database
@@ -132,8 +122,6 @@ console.log("*********************************************");
 //     console.log(err);
 //   });
 
-console.log("*********************************************");
-
 // ORDER BY
 
 // database
@@ -146,12 +134,6 @@ console.log("*********************************************");
 //   .catch((err) => {
 //     console.log(err);
 //   }); // desc // asc
-
-// 1 p 1
-// 1 p M
-// M p M
-
-// JOIN
 
 // Inserts associados
 
@@ -176,3 +158,20 @@ console.log("*********************************************");
 //   .catch((err) => {
 //     console.log(err);
 //   });
+
+// JOIN 1 p 1
+
+database
+  .select([
+    "games.*",
+    "estudios.id as estudio_id",
+    "estudios.nome as estudio_nome",
+  ])
+  .table("games")
+  .innerJoin("estudios", "estudios.game_id", "games.id")
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
