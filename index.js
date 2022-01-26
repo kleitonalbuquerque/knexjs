@@ -49,7 +49,7 @@ console.log("*********************************************");
 // INSERT e SELECT (NESTED QUERIES)
 
 // database
-//   .insert({ nome: "Trine", preco: 49.9 })
+//   .insert({ nome: "WOW", preco: 39.9 })
 //   .into("games")
 //   .then((data) => {
 //     database
@@ -152,3 +152,27 @@ console.log("*********************************************");
 // M p M
 
 // JOIN
+
+// Inserts associados
+
+// database
+//   .insert({
+//     nome: "blizzard",
+//     game_id: 7,
+//   })
+//   .into("estudios")
+//   .then((data) => {
+//     database
+//       .select()
+//       .table("estudios")
+//       .then((data) => {
+//         console.log(data);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
