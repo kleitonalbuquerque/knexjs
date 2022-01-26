@@ -136,13 +136,19 @@ console.log("*********************************************");
 
 // ORDER BY
 
-database
-  .select()
-  .table("games")
-  .orderBy("preco", "asc")
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((err) => {
-    console.log(err);
-  }); // desc // asc
+// database
+//   .select()
+//   .table("games")
+//   .orderBy("preco", "asc")
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   }); // desc // asc
+
+// 1 p 1
+// 1 p M
+// M p M
+
+// JOIN
