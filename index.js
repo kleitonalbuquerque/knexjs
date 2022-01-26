@@ -169,6 +169,7 @@ database
   ])
   .table("games")
   .innerJoin("estudios", "estudios.game_id", "games.id")
+  .where("games.id", 7)
   .then((data) => {
     console.log(data);
   })
