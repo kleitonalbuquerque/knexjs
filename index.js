@@ -177,25 +177,41 @@ console.log("*********************************************");
 //     console.log(err);
 //   });
 
+// database
+//   .select(["games.*", "estudios.nome as estudio_nome"])
+//   .table("games")
+//   .innerJoin("estudios", "estudios.game_id", "games.id")
+//   .orderBy("estudios.game_id")
+//   .then((data) => {
+//     var game = {
+//       id: 0,
+//       nome: "",
+//       estudios: [],
+//     };
+
+//     game.id = data[0].id;
+//     game.nome = data[0].nome;
+
+//     data.forEach((estudio) => {
+//       game.estudios.push({ nome: estudio.estudio_nome });
+//     });
+//     console.log(game);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+// Relacionamento many to many
+
 database
-  .select(["games.*", "estudios.nome as estudio_nome"])
-  .table("games")
-  .innerJoin("estudios", "estudios.game_id", "games.id")
-  .orderBy("estudios.game_id")
+  .select(["nome"])
+  .table("games_estudios")
+  .innerJoin("games", "games.id", "games_estudios.game_id")
+  .innerJoin("estudios", "estudios.id", "games_estudios.estudio_id")
+  .where("games_estudios.estudio_id", 3)
+  .orderBy("games.id", "asc")
   .then((data) => {
-    var game = {
-      id: 0,
-      nome: "",
-      estudios: [],
-    };
-
-    game.id = data[0].id;
-    game.nome = data[0].nome;
-
-    data.forEach((estudio) => {
-      game.estudios.push({ nome: estudio.estudio_nome });
-    });
-    console.log(game);
+    console.log(data);
   })
   .catch((err) => {
     console.log(err);
