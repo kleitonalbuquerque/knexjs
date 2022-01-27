@@ -203,16 +203,31 @@ console.log("*********************************************");
 
 // Relacionamento many to many
 
-database
-  .select(["nome"])
-  .table("games_estudios")
-  .innerJoin("games", "games.id", "games_estudios.game_id")
-  .innerJoin("estudios", "estudios.id", "games_estudios.estudio_id")
-  .where("games_estudios.estudio_id", 3)
-  .orderBy("games.id", "asc")
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// database
+//   .select(["nome"])
+//   .table("games_estudios")
+//   .innerJoin("games", "games.id", "games_estudios.game_id")
+//   .innerJoin("estudios", "estudios.id", "games_estudios.estudio_id")
+//   .where("games_estudios.estudio_id", 3)
+//   .orderBy("games.id", "asc")
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+async function testeTransacao() {
+  try {
+    await database.transaction(async (trans) => {
+      await database.insert({ nome: "Konami" }).table("estudios");
+      await database.insert({ nome: "CAPCOM" }).table("estudios");
+      await database.insert({ nome: "Naughty Dog" }).table("estudios");
+      await database.insert({ nome: "Mojang" }).table("estudios");
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+testeTransacao();
